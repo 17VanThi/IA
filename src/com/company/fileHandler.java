@@ -30,9 +30,11 @@ public class fileHandler {
 	
 	public static String readLineAt(String fileName, int start) {
 		// grab the line from position "start" in the file
+		
 		try (RandomAccessFile rf = new RandomAccessFile(fileName, "rws")) {
 			rf.seek(start);
-			return rf.readLine();
+			String line = rf.readLine();
+			return line;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -86,13 +88,13 @@ public class fileHandler {
 		return false;
 	}
 	
-	// NOTICE: this function SUCKS use FileWriteLine() instead to write a blank entry
+	// doesnt work
 	public static void delete(String fileName, int start) {
 		// grab the line from position "start" in the file
 		try (RandomAccessFile rf = new RandomAccessFile(fileName, "rws")) {
 			rf.seek(start);
 			
-			//TODO; make it wrirte instead of read idiot
+			//TODO; make it write instead of read
 			//read the line at this place
 			FileReader fr = new FileReader(fileName);
 			BufferedReader br = new BufferedReader(fr);
