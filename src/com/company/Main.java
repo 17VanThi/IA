@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        System.out.println(database.getData(22));
+        System.out.println(database.getData(10));
         
     }
 }
