@@ -9,7 +9,7 @@ public class database {
 	}
 	
 	public static String getData(int position){
-		//TODO add an offset of 2 for every 10 position
+		// adds an offset of 2 for every 10 position
 		// 20 -> 2 -> 4
 		// 12 -> 1 -> 2
 		// 19 -> 1 -> 2
