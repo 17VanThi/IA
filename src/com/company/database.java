@@ -18,4 +18,9 @@ public class database {
 		return data;
 	}
 	
+	public static String getDateFromData(String data){
+		//TODO do this
+		return null;
+	}
+	
 }
