@@ -15,7 +15,15 @@ public class menu {
 		
 		while (option != 3){
 			if (option == 1 ){
-				//TODO book a room (take on a day, e.g. 23 of march instead of just a day in the week)
+				// get name
+				System.out.println("Who are you?");
+				String name = sc.nextLine();
+				
+				//get room
+				
+				System.out.println("What room?");
+				String room = sc.next();
+				
 				System.out.println("What day? \n");
 				System.out.println("Day (input number): ");
 				int day = sc.nextInt();
@@ -47,10 +55,13 @@ public class menu {
 				System.out.println("Year (input number): ");
 				String year = sc.next();
 				
+				
 				String finalDate;
 				
+				
+				 // format the date
 				if(exMon && !exDay){
-					finalDate = day + extendedMonth + year + "|" + day + "," + extendedMonth + "," + year;;
+					finalDate = day + extendedMonth + year + "|" + day + "," + extendedMonth + "," + year;
 				}
 				else if(exMon && exDay){
 					finalDate = extendedDay + extendedMonth + year + "|" + extendedDay + "," + extendedMonth + "," + year;
@@ -61,6 +72,8 @@ public class menu {
 				else {
 					finalDate = day + month + year + "|" + day + "," + month + "," + year;
 				}
+				
+				Booking newBooking = new Booking(name,room,finalDate);
 				
 				fileHandler.appendLine(FILENAME, finalDate);
 				
