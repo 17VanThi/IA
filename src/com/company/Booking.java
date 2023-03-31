@@ -12,8 +12,14 @@ public class Booking {
 	}
 	
 	//todo check clashing
+	//loop through all the rooms in BookingList, check if Room and Date is the same as this booking,
+	// if it is the same then notify the user that it clashes and then delete it(?) or recommend another date for the same room
+	// e.g. same day next week
+	
+	
+	
 	public int getDayFromDate(){
-		// date is DDMMYYYY | DD,MM,YYYY
+		// date is DDMMYYYY
 		//read the first 2 chars of the date
 		char char1 = date.charAt(0);
 		char char2 = date.charAt(1);

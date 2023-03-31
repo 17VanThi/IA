@@ -11,4 +11,14 @@ public class BookingList {
 	public void addBooking(Booking booking){
 		bookings.add(booking);
 	}
+	
+	//TODO make function that sort the bookings
+	//Sort by date
+	
+	//Search by Person
+	
+	//Search by Room
+	
+	//TODO make function that reads the data and adds the bookings into the array
+	//or just do it in database
 }

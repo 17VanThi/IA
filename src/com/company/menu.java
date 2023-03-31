@@ -17,14 +17,14 @@ public class menu {
 			if (option == 1 ){
 				// get name
 				System.out.println("Who are you?");
-				String name = sc.nextLine();
+				String name = sc.next();
 				
 				//get room
 				
 				System.out.println("What room?");
 				String room = sc.next();
 				
-				System.out.println("What day? \n");
+				System.out.print("What day? \n");
 				System.out.println("Day (input number): ");
 				int day = sc.nextInt();
 				
@@ -61,21 +61,21 @@ public class menu {
 				
 				 // format the date
 				if(exMon && !exDay){
-					finalDate = day + extendedMonth + year + "|" + day + "," + extendedMonth + "," + year;
+					finalDate = day + extendedMonth + year;
 				}
 				else if(exMon && exDay){
-					finalDate = extendedDay + extendedMonth + year + "|" + extendedDay + "," + extendedMonth + "," + year;
+					finalDate = extendedDay + extendedMonth + year;
 				}
 				else if(!exMon && exDay){
-					finalDate = extendedDay + month + year + "|" + extendedDay + "," + month + "," + year;
+					finalDate = extendedDay + month + year;
 				}
 				else {
-					finalDate = day + month + year + "|" + day + "," + month + "," + year;
+					finalDate = day + month + year ;
 				}
 				
 				Booking newBooking = new Booking(name,room,finalDate);
 				
-				fileHandler.appendLine(FILENAME, finalDate);
+				fileHandler.appendLine(FILENAME, finalDate +","+ room +","+ name);
 				
 				System.out.println("Options \n 1 - Book a room \n 2 - TBA \n 3 - Exit");
 				System.out.print("Option: ");

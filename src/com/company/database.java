@@ -2,25 +2,17 @@ package com.company;
 
 public class database {
 	//filename should be data
-	private static String fileName = "data" ;
+	private static String FILENAME = "data" ;
 	
 	public static void append(String data){
-		fileHandler.appendLine(fileName , data);
+		fileHandler.appendLine(FILENAME , data);
 	}
 	
-	public static String getData(int position){
-		// adds an offset of 2 for every 10 position
-		// 20 -> 2 -> 4
-		// 12 -> 1 -> 2
-		// 19 -> 1 -> 2
-		double offset = Math.floor(position/10)*2;
-		String data = fileHandler.readLineAt(fileName , position + (int)offset);
+	public static String getDataFromSpecificLine(int lineNumber){
+		String data = fileHandler.getDataFromSpecificLine(FILENAME,lineNumber);
+		System.out.println(data);
 		return data;
-	}
 	
-	public static String getDateFromData(String data){
-		//TODO do this
-		return null;
 	}
 	
 }

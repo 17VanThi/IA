@@ -72,7 +72,7 @@ public class fileHandler {
 			//loop through file
 			while (line != null) {
 				line = br.readLine();
-				//make sure you dont compare string to null (avoid the error)
+				//make sure you don't compare string to null (avoid the error)
 				if (line == null){
 					//break the loop
 					return false;
@@ -89,24 +89,22 @@ public class fileHandler {
 		return false;
 	}
 	
-	// doesnt work
-	public static void delete(String fileName, int start) {
-		// grab the line from position "start" in the file
-		try (RandomAccessFile rf = new RandomAccessFile(fileName, "rws")) {
-			rf.seek(start);
-			
-			//TODO; make it write instead of read
-			//read the line at this place
-			FileReader fr = new FileReader(fileName);
+	public static String getDataFromSpecificLine(String filename,int lineNumber) {
+		try {
+			FileReader fr = new FileReader(filename);
 			BufferedReader br = new BufferedReader(fr);
-			String line = br.readLine();
+			//loop through the file until you reach the line you want, then read the data on that line
+			// "i" starts at 1, so it is not 0 indexed
+			for (int i = 1; i < lineNumber ; ++i)
+				br.readLine();
 			
-			//set it to nothing
-			line = "";
-			
-		} catch (IOException e) {
+			String lineIWant = br.readLine();
+			return lineIWant;
+		}
+		catch(IOException e){
 			e.printStackTrace();
 		}
-		
+		return null;
 	}
+	
 }

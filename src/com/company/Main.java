@@ -8,6 +8,7 @@ public class Main {
        
         Booking test = new Booking("Van","H14","01022023|01,02,2023");
         int day = test.getDayFromDate();
-        System.out.println(day);
+        database.getDataFromSpecificLine(1);
+        
     }
 }
