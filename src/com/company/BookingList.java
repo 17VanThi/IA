@@ -12,7 +12,10 @@ public class BookingList {
 		bookings.add(booking);
 	}
 	
-	//TODO make function that sort the bookings
+	//loop through the text file and add the bookings to the list
+	
+	
+	//TODO make functions that sort the bookings
 	//Sort by date
 	
 	//Search by Person
@@ -21,4 +24,5 @@ public class BookingList {
 	
 	//TODO make function that reads the data and adds the bookings into the array
 	//or just do it in database
+	
 }

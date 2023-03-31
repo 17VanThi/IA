@@ -50,12 +50,12 @@ public class menu {
 					exMon = true;
 				}
 				
-				//TODO make date have a lower bound of 2023?
+			
 				System.out.println("What year?");
 				System.out.println("Year (input number): ");
 				String year = sc.next();
 				
-				
+				//TODO Clash checking here
 				String finalDate;
 				
 				

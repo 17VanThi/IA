@@ -52,4 +52,8 @@ public class Booking {
 		return year;
 	}
 	
+	public void display(){
+		System.out.println(name+","+room+","+date);
+	}
+	
 }
