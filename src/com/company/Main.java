@@ -10,6 +10,7 @@ public class Main {
         int day = test.getDayFromDate();
         database.getDataFromSpecificLine(1);
         test.display();
+        menu.start();
         
     }
 }

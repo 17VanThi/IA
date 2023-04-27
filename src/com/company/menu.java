@@ -27,6 +27,11 @@ public class menu {
 				System.out.print("What day? \n");
 				System.out.println("Day (input number): ");
 				int day = sc.nextInt();
+				while (day > 33 || day < 0){
+					System.out.println("Invalid day, day must be over 0 and less than 33");
+					System.out.println("day (input number): ");
+					day = sc.nextInt();
+				}
 				
 				//extend a date by adding a 0, so it fills two slots always, e.g. 6 --> 06
 				boolean exDay = false;
@@ -40,6 +45,11 @@ public class menu {
 				System.out.println("What month? (1-12)");
 				System.out.println("Month (input number): ");
 				int month = sc.nextInt();
+				while (month > 12 || month < 0){
+					System.out.println("Invalid month, month must be over 0 and less than 12");
+					System.out.println("Month (input number): ");
+					month = sc.nextInt();
+				}
 				
 				// same thing here
 				boolean exMon = false;
@@ -54,6 +64,13 @@ public class menu {
 				System.out.println("What year?");
 				System.out.println("Year (input number): ");
 				String year = sc.next();
+				int intYear = Integer.parseInt(year);
+				while (intYear < 2022){
+					System.out.println("Invalid year, year must be over 2022");
+					System.out.println("Year (input number): ");
+					year = sc.next();
+					intYear = Integer.parseInt(year);
+				}
 				
 				//TODO Clash checking here
 				String finalDate;

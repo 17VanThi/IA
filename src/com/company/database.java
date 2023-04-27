@@ -12,7 +12,15 @@ public class database {
 		String data = fileHandler.getDataFromSpecificLine(FILENAME,lineNumber);
 		System.out.println(data);
 		return data;
-	
 	}
 	
+	public static Booking getBookingFromData(String data){
+		//data is "DDMMYY,ROOM,PERSON"
+		
+		//get an array in the form of "DDMMYY","ROOM","PERSON"
+		String[] dataValues = data.split(",");
+		
+		Booking newBooking = new Booking(dataValues[2],dataValues[1],dataValues[0]);
+		return newBooking;
+	}
 }
