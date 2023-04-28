@@ -10,27 +10,55 @@ public class BookingList {
 		bookings = new ArrayList<Booking>();
 	}
 	
-	public void addBooking(Booking booking){
+	private void addBooking(Booking booking){
 		bookings.add(booking);
 	}
 	
 	//loop through the text file and add the bookings to the list
 	
 	//the file to get the data from , and the list to put them into
-	private void getBookingsFromData(String filename,ArrayList<Booking> bookings){
+	public void getBookingsFromData(String filename,ArrayList<Booking> bookings){
+		//delete everything in the list
+		for (int i = 0; i< bookings.size(); i++){
+			bookings.remove(i);
+		}
+		
 		int lineCount = fileHandler.getLineCount(filename);
 		String lineData;
-		for(int i = 0; i < lineCount; i++){
+		for(int i = 1; i < lineCount+1; i++){
 			lineData = database.getDataFromSpecificLine(i);
 			Booking newBooking = database.getBookingFromData(lineData);
-			
+		}
+	}
+	
+	public ArrayList<Booking> getArrayList() {
+		return bookings;
+	}
+	
+	public void displayList(){
+		for( int i = 0 ; i< bookings.size();i++){
+			bookings.get(i).display();
 		}
 	}
 	
 	
 	//TODO make functions that sort the bookings
 	//Sort by date
-	
+	//first sort by month then sort again by day, change the inputted array to the sorted one
+	public void sortByDate(ArrayList<Booking> bookings){
+		//this arraylist will hold all the months of the bookings
+		ArrayList <Integer> sortedByMonth = new ArrayList<Integer>();
+		//bookingIndex[i]'s month should be equal to sortedByMonth[i] so that you can then sort by day
+		ArrayList <Booking> bookingIndex = new ArrayList<Booking>();
+		
+		for (int i = 0; i< bookings.size();i++)	{
+			bookingIndex.add(bookings.get(i));
+			sortedByMonth.add(bookings.get(i).getMonthFromDate());
+		}
+		
+		
+		
+	}
 	//Search by Person
 	
 	//Search by Room
