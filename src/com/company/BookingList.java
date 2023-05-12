@@ -47,7 +47,10 @@ public class BookingList {
 	//first sort by month then sort again by day, change the inputted array to the sorted one
 	public void sortByDate(ArrayList<Booking> bookings){
 		//this arraylist will hold all the months of the bookings
+		// e.g 10,9,2,2,3,12
+		// Sort this list whilst doing the same thing to bookingIndex
 		ArrayList <Integer> sortedByMonth = new ArrayList<Integer>();
+
 		//bookingIndex[i]'s month should be equal to sortedByMonth[i] so that you can then sort by day
 		ArrayList <Booking> bookingIndex = new ArrayList<Booking>();
 		

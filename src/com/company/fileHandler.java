@@ -94,6 +94,7 @@ public class fileHandler {
 			FileReader fr = new FileReader(filename);
 			BufferedReader br = new BufferedReader(fr);
 			//loop through the file until you reach the line you want, then read the data on that line
+			// should return 
 			// "i" starts at 1, so it is not 0 indexed
 			for (int i = 1; i < lineNumber ; ++i)
 				br.readLine();
