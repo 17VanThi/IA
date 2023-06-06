@@ -53,7 +53,12 @@ public class Booking {
 	}
 	
 	public void display(){
-		System.out.println(name+","+room+","+date);
+		System.out.println(toString());
 	}
+
+	public String toString(){
+		return name+","+room+","+date;
+	}
+
 	
 }

@@ -8,7 +8,7 @@ public class menu {
 		Scanner sc = new Scanner(System.in);
 		String FILENAME = "data";
 		
-		System.out.println("Options \n 1 - Book a room \n 2 - TBA \n 3 - Exit");
+		System.out.println("Options: \n [1] Book a room \n [2] TBA \n [3] Exit");
 		System.out.print("Option: ");
 		
 		int option = sc.nextInt();
