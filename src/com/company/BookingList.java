@@ -16,6 +16,10 @@ public class BookingList {
 		getBookingsFromData(filename,bookings);
 	}
 
+	public ArrayList<Booking> getBookingArrayList() {
+		return bookings;
+	}
+
 	private void addBooking(Booking booking){
 		bookings.add(booking);
 	}
@@ -53,7 +57,8 @@ public class BookingList {
 	//first sort by month then sort again by day, change the inputted array to the sorted one
 
 
-	public void sortByDate(ArrayList<Booking> bookings){
+	public void sortByDate(){
+		bookings = getBookingArrayList();
 		//this arraylist will hold all the months of the bookings
 		// e.g 10,9,2,2,3,12
 		// Sort this list whilst doing the same thing to bookingIndex
@@ -91,31 +96,6 @@ public class BookingList {
 			}
 		}
 
-
-
-
-
-		/*
-		for (int i = 0; i < n - 1; i++) {
-			swapped = false;
-			for (j = 0; j < n - i - 1; j++) {
-				if (arr[j] > arr[j + 1]) {
-
-					// Swap arr[j] and arr[j+1]
-					temp = arr[j];
-					arr[j] = arr[j + 1];
-					arr[j + 1] = temp;
-					swapped = true;
-				}
-			}
-		}
-
-		 */
-
-
-		
-		
-		
 	}
 	//Search by Person
 	

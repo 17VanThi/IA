@@ -9,6 +9,9 @@ public class Main {
         BookingList newBookingList = new BookingList();
         newBookingList.getBookingsFromData("data",newBookingList.getArrayList());
         newBookingList.displayList();
+        newBookingList.displayList();
+        newBookingList.sortByDate();
+        newBookingList.displayList();
 
     }
 }
