@@ -10,7 +10,6 @@ public class database {
 	
 	public static String getDataFromSpecificLine(int lineNumber){
 		String data = fileHandler.getDataFromSpecificLine(FILENAME,lineNumber);
-		System.out.println(data);
 		return data;
 	}
 	

@@ -38,6 +38,7 @@ public class BookingList {
 		for(int i = 1; i < lineCount+1; i++){
 			lineData = database.getDataFromSpecificLine(i);
 			Booking newBooking = database.getBookingFromData(lineData);
+			bookings.add(newBooking);
 		}
 	}
 	
