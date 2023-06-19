@@ -73,9 +73,22 @@ public class BookingList {
 			bookingIndex.add(bookings.get(i));
 			sortedByMonth.add(bookings.get(i).getMonthFromDate());
 		}
+		/* debugging
+		System.out.println("displaying booking index");
+		for (int i = 0; i< bookings.size();i++){
 
-		//sort
+			System.out.print(bookingIndex.get(i) + "/") ;
+		}
+		System.out.println("");
+		System.out.println("displaying sorted by month");
+		for (int i = 0; i< bookings.size();i++){
 
+			System.out.print(sortedByMonth.get(i) + "/");
+		}
+		System.out.println("");
+		 */
+
+        //sort
 		for(int i = 0; i<sortedByMonth.toArray().length;i++){
 			for (int j = 0; j <sortedByMonth.toArray().length;j++){
 
@@ -96,6 +109,24 @@ public class BookingList {
 
 			}
 		}
+		bookings = bookingIndex;
+		/* debugging
+
+		System.out.println("displaying bookingindex");
+		for (int i = 0; i< bookings.size();i++){
+
+			System.out.print(bookingIndex.get(i) + "/") ;
+		}
+		System.out.println("");
+		System.out.println("displaying sorted by month");
+		for (int i = 0; i< bookings.size();i++){
+
+			System.out.print(sortedByMonth.get(i) + "/");
+		}
+		System.out.println("");
+
+		 */
+
 
 	}
 	//Search by Person
