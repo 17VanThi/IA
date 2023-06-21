@@ -11,9 +11,7 @@ public class Main {
         BookingList newBookingList = new BookingList("data");
 
 
-        newBookingList.displayList();
-        newBookingList.sortByDate();
-        newBookingList.displayList();
+        menu.start();
 
 
 

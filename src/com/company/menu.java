@@ -8,7 +8,7 @@ public class menu {
 		Scanner sc = new Scanner(System.in);
 		String FILENAME = "data";
 		
-		System.out.println("Options: \n [1] Book a room \n [2] TBA \n [3] Exit");
+		System.out.println("Options: \n [1] Book a room \n [2] View \n [3] Exit");
 		System.out.print("Option: ");
 		
 		int option = sc.nextInt();
@@ -100,8 +100,14 @@ public class menu {
 				option = sc.nextInt();
 				
 			}
+
+			// view + sort
 			if (option == 2){
 				//TODO view the timetable
+				System.out.println("How would you like to view the timetable?");
+				System.out.println("[1] -  By date \n [2] - By Person \n [3] - By room");
+				System.out.print("Option:");
+
 			}
 		}
 		
