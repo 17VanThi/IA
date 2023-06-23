@@ -103,11 +103,18 @@ public class menu {
 
 			// view + sort
 			if (option == 2){
+
+				BookingList newList = new BookingList("data");
 				//TODO view the timetable
 				System.out.println("How would you like to view the timetable?");
 				System.out.println("[1] -  By date \n [2] - By Person \n [3] - By room");
 				System.out.print("Option:");
 
+				int sortOption = sc.nextInt();
+
+				if (sortOption == 1){
+
+				}
 			}
 		}
 		
