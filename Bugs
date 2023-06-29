@@ -1,0 +1,4 @@
+Bugs
+
+the "day" and "month" variables will add together sometimes when creating a bookinh
+e.g. if day is 30 and month is 12 -> change to string?

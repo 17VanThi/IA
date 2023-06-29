@@ -89,9 +89,11 @@ public class menu {
 				else {
 					finalDate = day + month + year ;
 				}
-				
 				Booking newBooking = new Booking(name,room,finalDate);
-				
+
+				System.out.println("Your booking is:" );
+				newBooking.display();
+
 				fileHandler.appendLine(FILENAME, finalDate +","+ room +","+ name);
 				
 				System.out.println("Options \n 1 - Book a room \n 2 - TBA \n 3 - Exit");
@@ -107,13 +109,20 @@ public class menu {
 				BookingList newList = new BookingList("data");
 				//TODO view the timetable
 				System.out.println("How would you like to view the timetable?");
-				System.out.println("[1] -  By date \n [2] - By Person \n [3] - By room");
+				System.out.println(" [1] - By date \n [2] - By Person \n [3] - By room \n [4] - Return");
 				System.out.print("Option:");
 
 				int sortOption = sc.nextInt();
 
 				if (sortOption == 1){
+					newList.sortByDate();
+					newList.displayList();
+				}
+				if (sortOption == 4){
 
+					System.out.println("Options: \n [1] Book a room \n [2] View \n [3] Exit");
+					System.out.print("Option: ");
+					option = sc.nextInt();
 				}
 			}
 		}
