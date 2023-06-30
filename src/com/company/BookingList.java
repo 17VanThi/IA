@@ -73,20 +73,6 @@ public class BookingList {
 			bookingIndex.add(bookings.get(i));
 			sortedByMonth.add(bookings.get(i).getMonthFromDate());
 		}
-		/* debugging
-		System.out.println("displaying booking index");
-		for (int i = 0; i< bookings.size();i++){
-
-			System.out.print(bookingIndex.get(i) + "/") ;
-		}
-		System.out.println("");
-		System.out.println("displaying sorted by month");
-		for (int i = 0; i< bookings.size();i++){
-
-			System.out.print(sortedByMonth.get(i) + "/");
-		}
-		System.out.println("");
-		 */
 
         //sort
 		for(int i = 0; i<sortedByMonth.toArray().length;i++){
@@ -110,31 +96,61 @@ public class BookingList {
 			}
 		}
 		bookings = bookingIndex;
-		/* debugging
-
-		System.out.println("displaying bookingindex");
-		for (int i = 0; i< bookings.size();i++){
-
-			System.out.print(bookingIndex.get(i) + "/") ;
-		}
-		System.out.println("");
-		System.out.println("displaying sorted by month");
-		for (int i = 0; i< bookings.size();i++){
-
-			System.out.print(sortedByMonth.get(i) + "/");
-		}
-		System.out.println("");
-
-		 */
 
 
 	}
 	//Search by Person
+
+
 	
 	//Search by Room
-	
-	//TODO make function that reads the data and adds the bookings into the array
-	//or just do it in database
+	public void sortByRoom(){
+
+		//TODO sort by year, then sort by month then day
+
+		//this arraylist will hold all the months of the bookings
+		// e.g 10,9,2,2,3,12
+		bookings = getBookingArrayList();
+
+		// Sort this list whilst doing the same thing to bookingIndex
+		ArrayList <Integer> sortedByMonth = new ArrayList<Integer>();
+
+		//bookingIndex[i]'s month should be equal to sortedByMonth[i] so that you can then sort by day
+		ArrayList <Booking> bookingIndex = new ArrayList<Booking>();
+
+		// add everything to the lists
+		for (int i = 0; i< bookings.size();i++)	{
+			bookingIndex.add(bookings.get(i));
+			sortedByMonth.add(bookings.get(i).getMonthFromDate());
+		}
+
+		//sort
+		for(int i = 0; i<sortedByMonth.toArray().length;i++){
+			for (int j = 0; j <sortedByMonth.toArray().length;j++){
+
+				if (sortedByMonth.get(i) > sortedByMonth.get(j)){
+					int temp = sortedByMonth.get(i);
+					//set arr[i] to [arr[j]
+					sortedByMonth.set(i,sortedByMonth.get(j));
+					sortedByMonth.set(j,temp);
+
+
+					//do same thing to bookingIndex
+					Booking tempBooking = bookingIndex.get(i);
+					bookingIndex.set(i,bookingIndex.get(j));
+					bookingIndex.set(j,tempBooking);
+
+
+				}
+
+			}
+		}
+		bookings = bookingIndex;
+
+
+
+	}
+
 
 
 }

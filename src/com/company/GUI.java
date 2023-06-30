@@ -18,14 +18,16 @@ public class GUI extends JPanel {
         viewButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("");
+                // when view button is clicked, show sorting options and a window that displays the bookings
+                // in the sorted format
+
             }
         });
         add(viewButton);
     }
 
 
-
+    //add a button that outputs its label when clicked
     public void addButton(String text,int x , int y, int width, int height){
         JButton newButton = new JButton(text);
         newButton.setBounds(x,y,width,height);
