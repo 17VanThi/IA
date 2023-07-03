@@ -15,8 +15,11 @@ public class Booking {
 	//loop through all the rooms in BookingList, check if Room and Date is the same as this booking,
 	// if it is the same then notify the user that it clashes and then delete it(?) or recommend another date for the same room
 	// e.g. same day next week
+
 	
-	
+	public char getFirstLetterFromRoom(){
+		return 'a' ;
+	}
 	
 	public int getDayFromDate(){
 		// date is DDMMYYYY

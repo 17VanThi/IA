@@ -14,7 +14,8 @@ public class menu {
 		int option = sc.nextInt();
 		
 		while (option != 3){
-			if (option == 1 ){
+
+			if (option == 1 ){ //book a room
 				// get name
 				System.out.println("Who are you?");
 				String name = sc.next();
@@ -23,7 +24,8 @@ public class menu {
 				
 				System.out.println("What room?");
 				String room = sc.next();
-				
+
+				//Get date
 				System.out.print("What day? \n");
 				System.out.println("Day (input number): ");
 				int day = sc.nextInt();
@@ -72,7 +74,7 @@ public class menu {
 					intYear = Integer.parseInt(year);
 				}
 				
-				//TODO Clash checking here
+
 				String finalDate;
 				
 				
@@ -87,9 +89,12 @@ public class menu {
 					finalDate = extendedDay + month + year;
 				}
 				else {
-					finalDate = day + month + year ;
+
+					finalDate = Integer.toString(day)  +Integer.toString(month) + year;
 				}
 				Booking newBooking = new Booking(name,room,finalDate);
+				//TODO Clash checking here
+				//take in
 
 				System.out.println("Your booking is:" );
 				newBooking.display();
@@ -104,6 +109,7 @@ public class menu {
 			}
 
 			// view + sort
+
 			if (option == 2){
 
 				BookingList newList = new BookingList("data");
@@ -114,7 +120,7 @@ public class menu {
 
 				int sortOption = sc.nextInt();
 
-				if (sortOption == 1){
+				if (sortOption == 1){ //sort by date
 					newList.sortByDate();
 					newList.displayList();
 				}

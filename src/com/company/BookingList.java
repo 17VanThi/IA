@@ -106,14 +106,14 @@ public class BookingList {
 	//Search by Room
 	public void sortByRoom(){
 
-		//TODO sort by year, then sort by month then day
+		//turn to string,sort it that way
 
 		//this arraylist will hold all the months of the bookings
 		// e.g 10,9,2,2,3,12
 		bookings = getBookingArrayList();
 
 		// Sort this list whilst doing the same thing to bookingIndex
-		ArrayList <Integer> sortedByMonth = new ArrayList<Integer>();
+		ArrayList <Integer> sortedByRoom = new ArrayList<Integer>();
 
 		//bookingIndex[i]'s month should be equal to sortedByMonth[i] so that you can then sort by day
 		ArrayList <Booking> bookingIndex = new ArrayList<Booking>();
@@ -121,18 +121,18 @@ public class BookingList {
 		// add everything to the lists
 		for (int i = 0; i< bookings.size();i++)	{
 			bookingIndex.add(bookings.get(i));
-			sortedByMonth.add(bookings.get(i).getMonthFromDate());
+			sortedByRoom.add(bookings.get(i).getMonthFromDate());
 		}
 
-		//sort
-		for(int i = 0; i<sortedByMonth.toArray().length;i++){
-			for (int j = 0; j <sortedByMonth.toArray().length;j++){
+		//sort it
+		for(int i = 0; i<sortedByRoom.toArray().length;i++){
+			for (int j = 0; j <sortedByRoom.toArray().length;j++){
 
-				if (sortedByMonth.get(i) > sortedByMonth.get(j)){
-					int temp = sortedByMonth.get(i);
+				if (sortedByRoom.get(i) > sortedByRoom.get(j)){
+					int temp = sortedByRoom.get(i);
 					//set arr[i] to [arr[j]
-					sortedByMonth.set(i,sortedByMonth.get(j));
-					sortedByMonth.set(j,temp);
+					sortedByRoom.set(i,sortedByRoom.get(j));
+					sortedByRoom.set(j,temp);
 
 
 					//do same thing to bookingIndex
