@@ -23,10 +23,10 @@ public class Calender extends JFrame implements ActionListener {
 
         this.setPreferredSize(new Dimension(370,350)); //size of window
 
-        for(int i = 0; i < 4; i++ ){ //column
+        for(int i = 0; i < 4; i++ ){ //columns or weeks
             x = 0 ;
 
-            for(int j = 0; j < 7; j++){ //row
+            for(int j = 0; j < 7; j++){ //row or day
                 JButton button = new JButton(Integer.toString(num));
                 button.setBounds(x,y,w,h);
                 button.addActionListener(this);
