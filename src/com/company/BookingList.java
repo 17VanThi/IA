@@ -113,15 +113,15 @@ public class BookingList {
 		bookings = getBookingArrayList();
 
 		// Sort this list whilst doing the same thing to bookingIndex
-		ArrayList <Integer> sortedByRoom = new ArrayList<Integer>();
+		ArrayList <Character> sortedByRoom = new ArrayList<Character>();
 
-		//bookingIndex[i]'s month should be equal to sortedByMonth[i] so that you can then sort by day
+		//bookingIndex[i]'s room letter should be equal to sortedByRoom[i] so that you can then sort by day
 		ArrayList <Booking> bookingIndex = new ArrayList<Booking>();
 
 		// add everything to the lists
 		for (int i = 0; i< bookings.size();i++)	{
 			bookingIndex.add(bookings.get(i));
-			sortedByRoom.add(bookings.get(i).getMonthFromDate());
+			sortedByRoom.add(bookings.get(i).getFirstLetterFromRoom());
 		}
 
 		//sort it
@@ -129,7 +129,7 @@ public class BookingList {
 			for (int j = 0; j <sortedByRoom.toArray().length;j++){
 
 				if (sortedByRoom.get(i) > sortedByRoom.get(j)){
-					int temp = sortedByRoom.get(i);
+					char temp = sortedByRoom.get(i);
 					//set arr[i] to [arr[j]
 					sortedByRoom.set(i,sortedByRoom.get(j));
 					sortedByRoom.set(j,temp);

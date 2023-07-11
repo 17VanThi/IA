@@ -18,7 +18,8 @@ public class Booking {
 
 	
 	public char getFirstLetterFromRoom(){
-		return 'a' ;
+		char Char1 = room.charAt(0);
+		return Char1;
 	}
 	
 	public int getDayFromDate(){

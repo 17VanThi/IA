@@ -20,6 +20,9 @@ public class GUI extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 // when view button is clicked, show sorting options and a window that displays the bookings
                 // in the sorted format
+                Calender cal = new Calender();
+                cal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
             }
         });

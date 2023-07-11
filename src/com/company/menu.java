@@ -124,6 +124,10 @@ public class menu {
 					newList.sortByDate();
 					newList.displayList();
 				}
+				if (sortOption == 2){
+					newList.sortByRoom();
+					newList.displayList();
+				}
 				if (sortOption == 4){
 
 					System.out.println("Options: \n [1] Book a room \n [2] View \n [3] Exit");
