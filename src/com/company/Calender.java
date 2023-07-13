@@ -25,7 +25,7 @@ public class Calender extends JFrame implements ActionListener {
 
         this.setPreferredSize(new Dimension(450,240)); //size of window
 
-
+        // the calender should have buttons that allow you to go back/forward a month
         for(int i = 0; i < 4; i++ ){ //columns or weeks
             x = 10 ;
             for(int j = 0; j < 7; j++){ //row or day

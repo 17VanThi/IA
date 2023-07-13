@@ -15,8 +15,8 @@ public class Main {
         frame.pack();
         frame.setVisible(true);
 
-        new Calender(1,30);
-        menu.start();
+//        new Calender(1,30);
+//        menu.start();
 
     }
 }
