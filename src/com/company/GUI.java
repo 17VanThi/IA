@@ -13,6 +13,24 @@ public class GUI extends JPanel {
         this.setPreferredSize(new Dimension(width,height));
         setLayout(null);
 
+
+        BookARoom bookaroomGUI = new BookARoom();
+        bookaroomGUI.setVisible(false);
+
+        JButton bookARoom = new JButton("Book A Room");
+        bookARoom.setBounds(10,50,150,60);
+        bookARoom.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // when clicked, display another gui that has input fields for day month, year, room and name
+                bookaroomGUI.setVisible(true);
+            }
+        });
+        add(bookARoom);
+
+        Calender cal = new Calender();
+        cal.setVisible(false);
+
         JButton viewButton = new JButton("View");
         viewButton.setBounds(10,100,150,60);
         viewButton.addActionListener(new ActionListener() {
@@ -20,9 +38,8 @@ public class GUI extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 // when view button is clicked, show sorting options and a window that displays the bookings
                 // in the sorted format
-                Calender cal = new Calender();
-                cal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+                cal.setVisible(true);
 
             }
         });
