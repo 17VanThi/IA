@@ -7,14 +7,14 @@ import java.awt.event.ActionListener;
 
 // GUI skeleton,
 
-public class GUI extends JPanel {
-    public GUI(int width, int height){
+public class MainMenuGUI extends JPanel {
+    public MainMenuGUI(int width, int height){
         System.out.println("GUI is working");
         this.setPreferredSize(new Dimension(width,height));
         setLayout(null);
 
 
-        BookARoom bookaroomGUI = new BookARoom();
+        BookARoomGUI bookaroomGUI = new BookARoomGUI();
         bookaroomGUI.setVisible(false);
 
         JButton bookARoom = new JButton("Book A Room");
