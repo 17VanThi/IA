@@ -7,12 +7,16 @@ import javax.swing.text.BadLocationException;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLOutput;
+import java.util.ArrayList;
 
 public class BookARoomGUI extends JFrame implements ActionListener {
 
     JTextField dayTextField;
     JTextField monthTextField;
     JTextField yearTextField;
+    JTextField userTextField;
+    JTextField roomTextField;
 
     public BookARoomGUI(){
         setLayout(null);
@@ -90,9 +94,34 @@ public class BookARoomGUI extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Search")) {
-            System.out.println(dayTextField.getText());
-            System.out.println(monthTextField.getText());
-            System.out.println(yearTextField.getText());
+
+            ArrayList<Booking> bookings;
+
+            BookingList bookingList = new BookingList("data");
+            bookingList.getBookingsFromData("data", bookings);
+
+            String day = dayTextField.getText();
+            String month = monthTextField.getText();
+            String year = yearTextField.getText();
+            String person = userTextField.getText();
+            String room = roomTextField.getText();
+
+            boolean exDay = false;
+            String extendedDay = null;
+            if (Integer.valueOf(day) < 10){
+                String dayStr = day;
+                extendedDay = "0"+ dayStr;
+                exDay = true;
+            }
+
+
+
+
+            //check in booking list
+
+            Booking booking = new Booking()
+            if ()
+
         }
 
     }
