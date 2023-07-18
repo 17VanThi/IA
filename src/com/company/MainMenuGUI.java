@@ -28,6 +28,7 @@ public class MainMenuGUI extends JPanel {
         });
         add(bookARoom);
 
+
         Calender cal = new Calender();
         cal.setVisible(false);
 

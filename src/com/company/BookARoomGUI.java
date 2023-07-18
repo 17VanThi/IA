@@ -17,10 +17,19 @@ public class BookARoomGUI extends JFrame implements ActionListener {
     JTextField yearTextField;
     JTextField userTextField;
     JTextField roomTextField;
+    JLabel errorLabel;
+    ArrayList<Booking> bookings;
+
 
     public BookARoomGUI(){
         setLayout(null);
         this.setPreferredSize(new Dimension(500,240)); //size of window
+
+        JLabel errorLabel = new JLabel("X");
+        errorLabel.setBounds(250,150,100,30);
+
+        add(errorLabel);
+
 
 
         JTextField userTextField = new JTextField();
@@ -95,7 +104,7 @@ public class BookARoomGUI extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Search")) {
 
-            ArrayList<Booking> bookings;
+
 
             BookingList bookingList = new BookingList("data");
             bookingList.getBookingsFromData("data", bookings);
@@ -106,6 +115,7 @@ public class BookARoomGUI extends JFrame implements ActionListener {
             String person = userTextField.getText();
             String room = roomTextField.getText();
 
+            //extend a date by adding a 0, so it fills two slots always, e.g. 6 --> 06
             boolean exDay = false;
             String extendedDay = null;
             if (Integer.valueOf(day) < 10){
@@ -113,14 +123,40 @@ public class BookARoomGUI extends JFrame implements ActionListener {
                 extendedDay = "0"+ dayStr;
                 exDay = true;
             }
+            // same thing here
+            boolean exMon = false;
+            String extendedMonth = null;
+            if (Integer.valueOf(month) < 10){
+                String monthStr = month;
+                extendedMonth = "0"+ monthStr;
+                exMon = true;
+            }
+            String finalDate;
 
+            // format the date
+            if(exMon && !exDay){
+                finalDate = day + extendedMonth + year;
+            }
+            else if(exMon && exDay){
+                finalDate = extendedDay + extendedMonth + year;
+            }
+            else if(!exMon && exDay){
+                finalDate = extendedDay + month + year;
+            }
+            else {
+                finalDate = day + month + year;
+            }
 
 
 
             //check in booking list
+            boolean valid = false;
 
-            Booking booking = new Booking()
-            if ()
+            Booking booking = new Booking(person,room,finalDate);
+            //if the booking already exists, tell the user
+            if (fileHandler.find("data",booking.toString()) == true){
+                    errorLabel.setText("Booking already exists!");
+            }
 
         }
 
