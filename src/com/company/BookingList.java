@@ -5,7 +5,8 @@ import java.util.logging.FileHandler;
 //this class will be used for keeping track of bookings and sorting them
 public class BookingList {
 	ArrayList<Booking> bookings;
-	
+
+	//arraylist of bookings
 	public BookingList() {
 		bookings = new ArrayList<Booking>();
 	}

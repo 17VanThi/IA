@@ -11,6 +11,7 @@ public class MainMenuGUI extends JPanel {
     public MainMenuGUI(int width, int height){
         System.out.println("GUI is working");
         this.setPreferredSize(new Dimension(width,height));
+        this.setMaximumSize(new Dimension(width,height));
         setLayout(null);
 
 

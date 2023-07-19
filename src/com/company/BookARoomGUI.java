@@ -1,5 +1,6 @@
 package com.company;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -7,6 +8,8 @@ import javax.swing.text.BadLocationException;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 
@@ -18,21 +21,33 @@ public class BookARoomGUI extends JFrame implements ActionListener {
     JTextField userTextField;
     JTextField roomTextField;
     JLabel errorLabel;
-    ArrayList<Booking> bookings;
+    BufferedImage emoji = null;
+
 
 
     public BookARoomGUI(){
         setLayout(null);
         this.setPreferredSize(new Dimension(500,240)); //size of window
+        this.setResizable(false);
 
-        JLabel errorLabel = new JLabel("X");
-        errorLabel.setBounds(250,150,100,30);
+        //try to add an image
+        try {
+            emoji = ImageIO.read(getClass().getResource("/Resources/emoji.jfif"));
+        } catch (IOException e) {
+            System.out.println("no image");
+        }
+
+
+
+        errorLabel = new JLabel("X");
+        errorLabel.setBounds(100,170,300,30);
+
 
         add(errorLabel);
 
 
 
-        JTextField userTextField = new JTextField();
+        userTextField = new JTextField();
         userTextField.setBounds(90,30,100,30);
 
         JLabel userTextLabel = new JLabel("Input Name:");
@@ -47,7 +62,7 @@ public class BookARoomGUI extends JFrame implements ActionListener {
 
         //todo : select from free rooms
         //check all the bookings with the same date and remove rooms that are occupied on that date
-        JTextField roomTextField = new JTextField();
+        roomTextField = new JTextField();
         roomTextField.setBounds(200,30,100,30);
 
         JLabel roomTextLabel = new JLabel("Input Room:");
@@ -89,7 +104,7 @@ public class BookARoomGUI extends JFrame implements ActionListener {
 
 
         JButton searchButton = new JButton("Search");
-        searchButton.setBounds(0,0,40,40);
+        searchButton.setBounds(0,160,90,40);
         add(searchButton);
         searchButton.addActionListener(this);
 
@@ -107,7 +122,8 @@ public class BookARoomGUI extends JFrame implements ActionListener {
 
 
             BookingList bookingList = new BookingList("data");
-            bookingList.getBookingsFromData("data", bookings);
+            bookingList.getBookingsFromData("data", bookingList.getBookingArrayList());
+
 
             String day = dayTextField.getText();
             String month = monthTextField.getText();
@@ -155,7 +171,11 @@ public class BookARoomGUI extends JFrame implements ActionListener {
             Booking booking = new Booking(person,room,finalDate);
             //if the booking already exists, tell the user
             if (fileHandler.find("data",booking.toString()) == true){
-                    errorLabel.setText("Booking already exists!");
+                errorLabel.setText("Booking already exists!");
+            } else{
+                //add the booking
+                fileHandler.appendLine("data", finalDate +","+ room +","+ person);
+                errorLabel.setText("Booking Added! Your Booking is " + booking.toString());
             }
 
         }
