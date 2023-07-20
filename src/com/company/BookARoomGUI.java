@@ -1,17 +1,9 @@
 package com.company;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.text.BadLocationException;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.sql.SQLOutput;
-import java.util.ArrayList;
 
 public class BookARoomGUI extends JFrame implements ActionListener {
 
@@ -21,7 +13,7 @@ public class BookARoomGUI extends JFrame implements ActionListener {
     JTextField userTextField;
     JTextField roomTextField;
     JLabel errorLabel;
-    BufferedImage emoji = null;
+//    BufferedImage emoji = null;
 
 
 
@@ -30,12 +22,12 @@ public class BookARoomGUI extends JFrame implements ActionListener {
         this.setPreferredSize(new Dimension(500,240)); //size of window
         this.setResizable(false);
 
-        //try to add an image
-        try {
-            emoji = ImageIO.read(getClass().getResource("/Resources/emoji.jfif"));
-        } catch (IOException e) {
-            System.out.println("no image");
-        }
+//        //try to add an image
+//        try {
+//            emoji = ImageIO.read(getClass().getResource("/Resources/emoji.jfif"));
+//        } catch (IOException e) {
+//            System.out.println("no image");
+//        }
 
 
 
@@ -163,16 +155,30 @@ public class BookARoomGUI extends JFrame implements ActionListener {
                 finalDate = day + month + year;
             }
 
-
-
             //check in booking list
-            boolean valid = false;
+            boolean valid = true;
 
             Booking booking = new Booking(person,room,finalDate);
             //if the booking already exists, tell the user
             if (fileHandler.find("data",booking.toString()) == true){
                 errorLabel.setText("Booking already exists!");
-            } else{
+                valid = false;
+            } else if (Integer.valueOf(day) > 32){
+                errorLabel.setText("Day is too large!");
+                valid = false;
+            } else if (Integer.valueOf(month) > 12){
+                errorLabel.setText("Month is too large!");
+                valid = false;
+            }  else if (Integer.valueOf(year) > 2050){
+            errorLabel.setText("Year is too large!");
+                valid = false;
+            }  else if (Integer.valueOf(year) < 2022){
+            errorLabel.setText("Year is too small!");
+                valid = false;
+            }
+
+
+            if (valid){
                 //add the booking
                 fileHandler.appendLine("data", finalDate +","+ room +","+ person);
                 errorLabel.setText("Booking Added! Your Booking is " + booking.toString());
