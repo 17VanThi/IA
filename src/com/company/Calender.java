@@ -117,6 +117,8 @@ public class Calender extends JFrame implements ActionListener {
                 System.out.println("OG: " + originalEndingDay);
                 newDayOfWeek = originalEndingDay ;
 
+                //Bug - October messes things up for some reason
+
 
                 System.out.println("ndow: "+ newDayOfWeek+ "newM: "+ newMonth);
 
