@@ -30,8 +30,8 @@ public class MainMenuGUI extends JPanel {
         add(bookARoom);
 
 
-        Calender cal = new Calender();
-        cal.setVisible(false);
+
+
 
         JButton viewButton = new JButton("View");
         viewButton.setBounds(10,(height/2 )+10,width-20,(height/2 )-20);
@@ -40,32 +40,11 @@ public class MainMenuGUI extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 // when view button is clicked, show sorting options and a window that displays the bookings
                 // in the sorted format
-
-                cal.setVisible(true);
+                Calender cal = new Calender(7,1,2023);
 
             }
         });
         add(viewButton);
     }
-
-
-    //add a button that outputs its label when clicked
-    public void addButton(String text,int x , int y, int width, int height){
-        JButton newButton = new JButton(text);
-        newButton.setBounds(x,y,width,height);
-        newButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println(text);
-            }
-        });
-        add(newButton);
-    }
-
-
-
-
-
-
 
 }
