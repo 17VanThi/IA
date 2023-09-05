@@ -59,11 +59,11 @@ public class Calender extends JFrame implements ActionListener {
                     newYear = year - 1;
                 }
 
-                //checks if leap year, but does not make febuary have 29 days
-                int remainder = newYear % 4;
-                if (remainder == 0 || newMonth == 2){
-                    daysInLastMonth++;
-                }
+//                //checks if leap year, but does not make febuary have 29 days
+//                int remainder = newYear % 4;
+//                if (remainder == 0 || newMonth == 2){
+//                    daysInLastMonth++;
+//                }
 
                 while (daysInLastMonth != 0){
                     if (newDayOfWeek == 0){
@@ -97,11 +97,11 @@ public class Calender extends JFrame implements ActionListener {
                     newYear = year + 1;
                 }
 
-                //checks if leap year, but does not make febuary have 29 days
-                int remainder = newYear % 4;
-                if (remainder == 0 || newMonth == 2){
-                    daysInNextMonth++;
-                }
+//                //checks if leap year, but does not make febuary have 29 days
+//                int remainder = newYear % 4;
+//                if (remainder == 0 || newMonth == 2){
+//                    daysInNextMonth++;
+//                }
 
                 //get the ending day of the main month
                 int originalEndingDay = getDayOfWeek();
