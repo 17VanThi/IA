@@ -40,7 +40,7 @@ public class MainMenuGUI extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 // when view button is clicked, show sorting options and a window that displays the bookings
                 // in the sorted format
-                Calender cal = new Calender(7,1,2023);
+                Calender cal = new Calender(1,1,2023);
 
             }
         });

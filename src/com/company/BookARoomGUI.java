@@ -112,7 +112,7 @@ public class BookARoomGUI extends JFrame implements ActionListener {
         if (e.getActionCommand().equals("Search")) {
 
 
-
+            //List of all existing Bookings to search through
             BookingList bookingList = new BookingList("data");
             bookingList.getBookingsFromData("data", bookingList.getBookingArrayList());
 
@@ -182,6 +182,7 @@ public class BookARoomGUI extends JFrame implements ActionListener {
                 //add the booking
                 fileHandler.appendLine("data", finalDate +","+ room +","+ person);
                 errorLabel.setText("Booking Added! Your Booking is " + booking.toString());
+                fileHandler.appendLine("dataDates",finalDate);
             }
 
         }

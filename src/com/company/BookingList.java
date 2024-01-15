@@ -36,7 +36,7 @@ public class BookingList {
 		
 		int lineCount = fileHandler.getLineCount(filename);
 		String lineData;
-		for(int i = 1; i < lineCount+1; i++){
+		for(int i = 1; i <= lineCount++; i++){
 			lineData = database.getDataFromSpecificLine(i);
 			Booking newBooking = database.getBookingFromData(lineData);
 			bookings.add(newBooking);

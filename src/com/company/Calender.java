@@ -26,23 +26,51 @@ public class Calender extends JFrame implements ActionListener {
 
 
         for(int day = 1; day <= daysInMonth; day++){
-            JButton button = new JButton(Integer.toString(day));
-            button.setBounds(0+((width+(width/5))*startingDay),0+((height+(height/5))*week),width,height);
-            button.addActionListener(this);
-            getContentPane().add(button);
-            if(startingDay == 7){
-                startingDay = 0;
-                week++;
+            String tempDay = Integer.toString(day);
+            String tempMonth = Integer.toString(month);
+
+            if(day<10){
+                tempDay = "0" + tempDay;
             }
-            startingDay++;
+            if(month<10){
+                tempMonth = "0" + tempMonth;
+            }
+
+            String currentDate = tempDay + tempMonth + Integer.toString(year);
+            System.out.println(currentDate + "day:"+ day);
+
+            if (fileHandler.find("dataDates",currentDate)){
+                JButton button = new JButton("<html><font color='red'>" + Integer.toString(day) + "</font></html>");
+
+                button.setBounds(0+((width+(width/5))*startingDay),0+((height+(height/5))*week),width,height);
+                button.addActionListener(this);
+                getContentPane().add(button);
+                if(startingDay == 7){
+                    startingDay = 0;
+                    week++;
+                }
+                startingDay++;
+            }
+            else {
+                JButton button = new JButton(Integer.toString(day));
+                button.setBounds(0+((width+(width/5))*startingDay),0+((height+(height/5))*week),width,height);
+
+                button.addActionListener(this);
+                getContentPane().add(button);
+                if(startingDay == 7){
+                    startingDay = 0;
+                    week++;
+                }
+                startingDay++;
+            }
         }
         setLayout(null);
-        setBounds(0,0,550,450);
+        setBounds(0,0,550,500);
         setVisible(true);
 
         // add << buttons and >> buttons, make them make a new calender and close the old one
         JButton goBackOneMonth = new JButton("<<");
-        goBackOneMonth.setBounds(0,350,60,45);
+        goBackOneMonth.setBounds(10,420,60,45);
         getContentPane().add(goBackOneMonth);
         goBackOneMonth.addActionListener(new ActionListener() {
             @Override
@@ -80,7 +108,7 @@ public class Calender extends JFrame implements ActionListener {
         });
 
         JButton goForwardOneMonth = new JButton(">>");
-        goForwardOneMonth.setBounds(480,350,60,45);
+        goForwardOneMonth.setBounds(480,420,60,45);
         getContentPane().add(goForwardOneMonth);
         goForwardOneMonth.addActionListener(new ActionListener() {
             @Override
@@ -134,9 +162,9 @@ public class Calender extends JFrame implements ActionListener {
 
 
     @Override
-    //when any button is clicked
+    //default for when a button is clicked
     public void actionPerformed(ActionEvent e) {
-
+        System.out.println("testing");
     }
 
     public int getDayOfWeek() {
