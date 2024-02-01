@@ -22,22 +22,10 @@ public class BookARoomGUI extends JFrame implements ActionListener {
         this.setPreferredSize(new Dimension(500,240)); //size of window
         this.setResizable(false);
 
-//        //try to add an image
-//        try {
-//            emoji = ImageIO.read(getClass().getResource("/Resources/emoji.jfif"));
-//        } catch (IOException e) {
-//            System.out.println("no image");
-//        }
-
-
-
-        errorLabel = new JLabel("X");
+        errorLabel = new JLabel("");
         errorLabel.setBounds(100,170,300,30);
 
-
         add(errorLabel);
-
-
 
         userTextField = new JTextField();
         userTextField.setBounds(90,30,100,30);
@@ -47,9 +35,6 @@ public class BookARoomGUI extends JFrame implements ActionListener {
 
         add(userTextField);
         add(userTextLabel);
-
-
-
 
 
         //todo : select from free rooms
@@ -161,8 +146,9 @@ public class BookARoomGUI extends JFrame implements ActionListener {
             boolean valid = true;
 
             Booking booking = new Booking(person,room,finalDate);
-            //if the booking already exists, tell the user
-            if (fileHandler.find("data",booking.toString()) == true){
+            //if a booking already exists on the same day, tell the user and invalidate
+            //also check for invalid date numbers
+            if (fileHandler.find("dataDates", finalDate)){
                 errorLabel.setText("Booking already exists!");
                 valid = false;
             } else if (Integer.valueOf(day) > 32){
@@ -178,7 +164,6 @@ public class BookARoomGUI extends JFrame implements ActionListener {
             errorLabel.setText("Year is too small!");
                 valid = false;
             }
-
 
             if (valid){
                 //add the booking
