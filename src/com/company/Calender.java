@@ -37,7 +37,6 @@ public class Calender extends JFrame implements ActionListener {
             }
 
             String currentDate = tempDay + tempMonth + Integer.toString(year);
-            System.out.println(currentDate + "day:"+ day);
 
             if (fileHandler.find("dataDates",currentDate)){
                 JButton button = new JButton("<html><font color='red'>" + Integer.toString(day) + "</font></html>");
