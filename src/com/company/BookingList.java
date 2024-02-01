@@ -1,19 +1,12 @@
 package com.company;
 import java.util.ArrayList;
-import java.util.logging.FileHandler;
 
 //this class will be used for keeping track of bookings and sorting them
 public class BookingList {
-	ArrayList<Booking> bookings;
+	ArrayList<Booking> bookings = new ArrayList<Booking>();
 
-	//arraylist of bookings
-	public BookingList() {
-		bookings = new ArrayList<Booking>();
-	}
-
-	//construct with existing datafile (probably better)
+	//construct with existing datafile
 	public BookingList(String filename){
-		bookings = new ArrayList<Booking>();
 		getBookingsFromData(filename,bookings);
 	}
 
@@ -35,10 +28,13 @@ public class BookingList {
 		}
 		
 		int lineCount = fileHandler.getLineCount(filename);
+		System.out.println("total lines in:"+ filename +" is: "+ lineCount);
 		String lineData;
-		for(int i = 1; i <= lineCount++; i++){
+		for(int i = 0; i < lineCount; i++){
+
 			lineData = database.getDataFromSpecificLine(i);
 			Booking newBooking = database.getBookingFromData(lineData);
+
 			bookings.add(newBooking);
 		}
 	}
@@ -52,12 +48,6 @@ public class BookingList {
 			bookings.get(i).display();
 		}
 	}
-	
-	
-	//TODO make functions that sort the bookings
-	//Sort by date
-	//first sort by month then sort again by day, change the inputted array to the sorted one
-
 
 	public void sortByDate(){
 		bookings = getBookingArrayList();

@@ -115,6 +115,8 @@ public class BookARoomGUI extends JFrame implements ActionListener {
             //List of all existing Bookings to search through
             BookingList bookingList = new BookingList("data");
             bookingList.getBookingsFromData("data", bookingList.getBookingArrayList());
+            System.out.println("Should be displaying something below...");
+            bookingList.displayList();
 
 
             String day = dayTextField.getText();

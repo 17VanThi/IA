@@ -96,7 +96,7 @@ public class fileHandler {
 			//loop through the file until you reach the line you want, then read the data on that line
 			// should return 
 			// "i" starts at 1, so it is not 0 indexed
-			for (int i = 1; i < lineNumber ; ++i)
+			for (int i = 0; i < lineNumber ; ++i)
 				br.readLine();
 			
 			String lineIWant = br.readLine();

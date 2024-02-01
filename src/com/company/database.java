@@ -21,7 +21,7 @@ public class database {
 		String[] dataValues = data.split(",");
 		
 		Booking newBooking = new Booking(dataValues[2],dataValues[1],dataValues[0]);
-		newBooking.display();
+
 		return newBooking;
 	}
 }
