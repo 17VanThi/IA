@@ -1,12 +1,9 @@
 package com.company;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-// GUI skeleton,
-
+// GUI skeleton
 public class MainMenuGUI extends JPanel {
     public MainMenuGUI(int width, int height){
         System.out.println("GUI is working");

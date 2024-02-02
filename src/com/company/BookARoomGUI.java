@@ -13,9 +13,6 @@ public class BookARoomGUI extends JFrame implements ActionListener {
     JTextField userTextField;
     JTextField roomTextField;
     JLabel errorLabel;
-//    BufferedImage emoji = null;
-
-
 
     public BookARoomGUI(){
         setLayout(null);
@@ -36,9 +33,6 @@ public class BookARoomGUI extends JFrame implements ActionListener {
         add(userTextField);
         add(userTextLabel);
 
-
-        //todo : select from free rooms
-        //check all the bookings with the same date and remove rooms that are occupied on that date
         roomTextField = new JTextField();
         roomTextField.setBounds(200,30,100,30);
 
@@ -55,14 +49,11 @@ public class BookARoomGUI extends JFrame implements ActionListener {
         JLabel dayLabel = new JLabel("Input Day:");
         dayLabel.setBounds(90,60,100,30);
 
-
-
         monthTextField = new JTextField();
         monthTextField.setBounds(200,90,100,30);
 
         JLabel monthLabel = new JLabel("Input Month:");
         monthLabel.setBounds(200,60,100,30);
-
 
         yearTextField = new JTextField();
         yearTextField.setBounds(310,90,100,30);
@@ -79,14 +70,12 @@ public class BookARoomGUI extends JFrame implements ActionListener {
         add(yearLabel);
         add(yearTextField);
 
-
         JButton searchButton = new JButton("Search");
         searchButton.setBounds(0,160,90,40);
         add(searchButton);
         searchButton.addActionListener(this);
 
         pack();
-
 
     }
 

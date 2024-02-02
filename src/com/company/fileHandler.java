@@ -2,7 +2,7 @@ package com.company;
 
 import java.io.*;
 
-// do file stuff in here only
+// do file operations in here only
 public class fileHandler {
 	
 	public static void FileWriteLine(String Filename, String Text, Boolean append){

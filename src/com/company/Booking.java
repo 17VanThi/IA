@@ -10,13 +10,7 @@ public class Booking {
 		this.room = room;
 		this.date = date;
 	}
-	
-	//todo check clashing
-	//loop through all the rooms in BookingList, check if Room and Date is the same as this booking,
-	// if it is the same then notify the user that it clashes and then delete it(?) or recommend another date for the same room
-	// e.g. same day next week
 
-	
 	public char getFirstLetterFromRoom(){
 		char Char1 = room.charAt(0);
 		return Char1;

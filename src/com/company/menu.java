@@ -93,9 +93,6 @@ public class menu {
 					finalDate = Integer.toString(day)  +Integer.toString(month) + year;
 				}
 				Booking newBooking = new Booking(name,room,finalDate);
-				//TODO Clash checking here
-				//take in
-
 				System.out.println("Your booking is:" );
 				newBooking.display();
 
@@ -108,12 +105,9 @@ public class menu {
 				
 			}
 
-			// view + sort
-
 			if (option == 2){
 
 				BookingList newList = new BookingList("data");
-				//TODO view the timetable
 				System.out.println("How would you like to view the timetable?");
 				System.out.println(" [1] - By date \n [2] - By Person \n [3] - By room \n [4] - Return");
 				System.out.print("Option:");
